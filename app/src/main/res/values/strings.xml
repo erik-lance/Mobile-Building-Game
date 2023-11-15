@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Exercise4ProcessManagement</string>
+    <string-array name="array_structures">
+        <item>Pigman House</item>
+        <item>Merman House</item>
+        <item>Mushroom Museum</item>
+        <item>Dapper House</item>
+        <item>Totally Normal House</item>
+    </string-array>
+</resources>

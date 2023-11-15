@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="trans_black">#B9000000</color>
+    <color name="trans_black_light">#8F000000</color>
+    <color name="trans_white">#CEFFFFFF</color>
+
+    <color name="build_active_tint">#FF7EDF0D</color>
+    <color name="build_active_text">#FF305901</color>
+
+    <color name="build_inactive_tint">#FFFFFF</color>
+    <color name="build_inactive_text">#9F9F9F</color>
+
+    <color name="blueprint_tint">#7CFFFFFF</color>
+
+    <color name="pigman_pink">#FFEB8B7F</color>
+    <color name="merman_green">#FF73CB61</color>
+    <color name="mushroom_red">#FFF13545</color>
+    <color name="dapper_yellow">#FFE39D19</color>
+    <color name="totally_normal_orange">#FFFB5D13</color>
+
+    <color name="trans_pigman_pink">#BAEB8B7F</color>
+    <color name="trans_merman_green">#BA73CB61</color>
+    <color name="trans_mushroom_red">#BAF13545</color>
+    <color name="trans_dapper_yellow">#BAE39D19</color>
+    <color name="trans_totally_normal_orange">#BAFB5D13</color>
+
+    <color name="ultra_trans_pigman_pink">#82EB8B7F</color>
+    <color name="ultra_trans_merman_green">#6973CB61</color>
+    <color name="ultra_trans_mushroom_red">#82F13545</color>
+    <color name="ultra_trans_dapper_yellow">#82E39D19</color>
+    <color name="ultra_trans_totally_normal_orange">#82FB5D13</color>
+
+    <color name="progress_pigman_pink">#CCFF8474</color>
+    <color name="progress_merman_green">#CC61F444</color>
+    <color name="progress_mushroom_red">#CCFF162A</color>
+    <color name="progress_dapper_yellow">#CCFFAA09</color>
+    <color name="progress_totally_normal_orange">#CCFF5100</color>
+</resources>

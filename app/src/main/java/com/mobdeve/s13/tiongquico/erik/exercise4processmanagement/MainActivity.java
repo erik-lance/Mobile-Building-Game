@@ -99,6 +99,12 @@ public class MainActivity extends AppCompatActivity {
      */
     private void buildFinished() {
         // TODO: Write your code here
+
+        // Enable the BUILD button
+        this.enableBuild();
+
+        // Show the pop-up notification
+        this.showNotification();
     }
 
     /**
@@ -107,6 +113,12 @@ public class MainActivity extends AppCompatActivity {
      */
     private void showNotification() {
         // TODO: Write your code here
+
+        // Set image
+        this.ivNotifStructure.setImageResource(StructureHelper.getHouse(this.selectedStructure));
+
+        // Set description
+        this.tvNotifDescription.setText(StructureHelper.getDescription(this.selectedStructure));
 
         this.tvNotifDescription.setTextColor(getColor(StructureHelper.getColor(this.selectedStructure)));
         this.llNotif.setVisibility(View.VISIBLE);

@@ -14,6 +14,9 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 /**
  * All structure images courtesy of Klei Entertainment's Don't Starve: Hamlet.
  * https://www.klei.com/games/dont-starve-together
@@ -33,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView ivNotifStructure;
     private TextView tvNotifDescription;
     private ProgressBar pbStructure;
+    private ExecutorService executorService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
 
         this.initComponents();
         this.showAllTiles();
+
+        this.executorService = Executors.newFixedThreadPool(9);
     }
 
     /**
@@ -48,6 +54,44 @@ public class MainActivity extends AppCompatActivity {
      */
     private void buildStructure() {
         // TODO: Write your code here
+
+        // Disable the BUILD button
+        this.disableBuild();
+
+        // Starts building the structure
+
+        // For each tile, create a thread with a random processing time
+        // and a callback that will be called when the thread finishes.
+        // It hides the tile once it's done processing. However, once
+        // all tiles are done processing, it will call the buildFinished()
+        // method.
+        for(int i = 0; i < this.clTiles.getChildCount(); i++) {
+            final int index = i;
+            this.executorService.execute(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        // The delay ranges from 500 milliseconds to 5500 milliseconds
+                        Thread.sleep((long) (Math.random() * 5000) + 500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            hideTileAt(index);
+                            pbStructure.setProgress(pbStructure.getProgress() + 1);
+
+                            if(pbStructure.getProgress() == pbStructure.getMax()) {
+                                buildFinished();
+                            }
+                        }
+                    });
+                }
+            });
+        }
+
     }
 
     /**

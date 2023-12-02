@@ -58,6 +58,9 @@ public class MainActivity extends AppCompatActivity {
         // Disable the BUILD button
         this.disableBuild();
 
+        // Refresh Tiles
+        this.showAllTiles();
+
         // Starts building the structure
 
         // For each tile, create a thread with a random processing time
@@ -67,28 +70,22 @@ public class MainActivity extends AppCompatActivity {
         // method.
         for(int i = 0; i < this.clTiles.getChildCount(); i++) {
             final int index = i;
-            this.executorService.execute(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        // The delay ranges from 500 milliseconds to 5500 milliseconds
-                        Thread.sleep((long) (Math.random() * 5000) + 500);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            hideTileAt(index);
-                            pbStructure.setProgress(pbStructure.getProgress() + 1);
-
-                            if(pbStructure.getProgress() == pbStructure.getMax()) {
-                                buildFinished();
-                            }
-                        }
-                    });
+            this.executorService.execute(() -> {
+                try {
+                    // The delay ranges from 500 milliseconds to 5500 milliseconds
+                    Thread.sleep((long) (Math.random() * 5000) + 500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
+
+                runOnUiThread(() -> {
+                    hideTileAt(index);
+                    pbStructure.setProgress(pbStructure.getProgress() + 1);
+
+                    if(pbStructure.getProgress() == pbStructure.getMax()) {
+                        buildFinished();
+                    }
+                });
             });
         }
 

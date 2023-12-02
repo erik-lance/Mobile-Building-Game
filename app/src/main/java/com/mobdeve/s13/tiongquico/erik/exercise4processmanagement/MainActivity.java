@@ -61,6 +61,9 @@ public class MainActivity extends AppCompatActivity {
         // Refresh Tiles
         this.showAllTiles();
 
+        // Remove notif
+        this.hideNotification();
+
         // Starts building the structure
 
         // For each tile, create a thread with a random processing time
